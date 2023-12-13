@@ -10,7 +10,7 @@
 void launch(struct Server *server) {
     char buffer[30000];
     while (1) {
-        printf("====== WAITING FOR CONNECTION ========");
+        printf("====== WAITING FOR CONNECTION ========\n");
         int address_length = sizeof(server->address);
         int new_socket = accept(server->socket,(struct sockaddr *)&server->address , (socklen_t *)&address_length) ;
         read(new_socket,buffer,30000); // read the message from client and copy it in buffer
