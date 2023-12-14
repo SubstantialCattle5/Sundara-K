@@ -4,11 +4,11 @@ project(Networking C)
 set(CMAKE_C_STANDARD 23)
 
 add_library(Networking
-        server.c
-        server.h
+        Webserver/server.c
+        Webserver/server.h
         test.c
-        HTTPRequest.c
-        HTTPRequest.h
+        Webserver/HTTPRequest.c
+        Webserver/HTTPRequest.h
         DataStructure/Node.h
         DataStructure/LinkedList.c
         DataStructure/LinkedList.h

@@ -1,7 +1,5 @@
 //
 //  LinkedList.h
-//
-//
 //  Created by Nilay
 //
 
