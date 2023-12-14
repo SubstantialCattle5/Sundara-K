@@ -1,14 +1,16 @@
 //
-// Created by nilay on 12/14/23.
+//  Node.h
+//
+//  Created by Nilay
 //
 
-#ifndef NETWORKING_NODE_H
-#define NETWORKING_NODE_H
+#ifndef Node_h
+#define Node_h
 
-
-struct Node_int {
-    void  *data ;
-    struct Node_int *next;
+struct Node
+{
+    void *data;
+    struct Node *next;
 };
 
-#endif //NETWORKING_NODE_H
+#endif /* Node_h */

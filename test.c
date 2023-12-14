@@ -1,29 +1,36 @@
 //
-// Created by nilay on 12/13/23.
+//  test.c
+//
+//
+//  Created by Nilay on 2/1/21.
 //
 
-#include "server.h"
 #include <stdio.h>
-#include <string.h>
-#include <unistd.h>
+#include "DataStructure/Queue.h"
 
-void launch(struct Server *server) {
-    char buffer[30000];
-    while (1) {
-        printf("====== WAITING FOR CONNECTION ========\n");
-        int address_length = sizeof(server->address);
-        int new_socket = accept(server->socket,(struct sockaddr *)&server->address , (socklen_t *)&address_length) ;
-        read(new_socket,buffer,30000); // read the message from client and copy it in buffer
-        printf("%s\n",buffer) ;
+#include <time.h>
 
-        char *hello = "HTTP/1.1 200 OK\nContent-Type: text/plain\n\nda main man!";
-        write(new_socket,hello,strlen(hello));
-        close(new_socket) ;
+int main()
+{
+    struct Queue list = queue_constructor();
+
+    clock_t begin = clock();
+    for (int i = 0; i < 100; i++)
+    {
+        int *x = (int *)malloc(sizeof(int));
+        *x = i;
+        list.push(x, &list);
+    }
+    clock_t end = clock();
+
+    for (int i = 0; i < 100; i++)
+    {
+        printf("%d\n", *(int *)list.pop(&list));
     }
 
-};
-int main() {
-    struct Server server = server_constructor(AF_INET, SOCK_STREAM, 0, INADDR_ANY, 8080, 10, launch);
-    printf("Server listening on port: %d\n", server.port);
-    server.launch(&server);
+    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+    printf("%f\n", time_spent);
+
+    queue_destructor(&list);
 }

@@ -9,7 +9,9 @@ add_library(Networking
         test.c
         HTTPRequest.c
         HTTPRequest.h
-        DataStructure/Node.c
         DataStructure/Node.h
         DataStructure/LinkedList.c
-        DataStructure/LinkedList.h)
+        DataStructure/LinkedList.h
+        DataStructure/Queue.c
+        DataStructure/Queue.h
+)

@@ -1,29 +1,28 @@
 //
-// Created by nilay on 12/14/23.
+//  LinkedList.h
+//
+//
+//  Created by Nilay
 //
 
-#ifndef NETWORKING_LINKEDLIST_H
-#define NETWORKING_LINKEDLIST_H
+#ifndef LinkedList_h
+#define LinkedList_h
 
-
-#include "Node.h"
 #include <stdlib.h>
 #include <stdio.h>
-struct LinkedList_int {
-    struct Node_int *head ;
-    int length ;
+#include "Node.h"
 
-    void (*insert) (int index, int data , struct LinkedList_int *linked_list);
-    void (*remove) (int index, struct LinkedList_int *linked_list ) ;
-    int (*retrieve) (int index, struct LinkedList_int *lined_list);
+struct LinkedList
+{
+    struct Node *head;
+    int length;
 
+    void (*insert)(int index, void *data, struct LinkedList *linked_list);
+    void (*remove)(int index, struct LinkedList *linked_list);
+    void * (*retrieve)(int index, struct LinkedList *linked_list);
 };
 
-//void insert_node_int(int index, int data, struct LinkedList_int *linked_list) ;
-//void remove_node_int(int index, struct LinkedList_int *linked_list) ;
-//int retrieve_data_int(int index, struct LinkedList_int *linked_list) ;
+struct LinkedList linked_list_constructor(void);
+void linked_list_destructor(struct LinkedList *linked_list);
 
-
-struct LinkedList_int linked_list_int_constructor() ;
-
-#endif //NETWORKING_LINKEDLIST_H
+#endif /* LinkedList_h */
