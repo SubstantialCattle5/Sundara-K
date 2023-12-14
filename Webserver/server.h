@@ -20,7 +20,7 @@ struct Server {
     // AF_INET or AF_INET6 used for ipv4 and ipv6 respectively. AF_INET6 is not supported yet
     int domain ;
 
-    /* 
+    /*
     * Service can be a socket type or socket family
     * SOCK_STREAM for TCP/FTP - 1  use socket.h constant SOCK_STREAM
     * SOCK_DGRAM for UDP - 2 use socket.h constant SOCK_DGRAM

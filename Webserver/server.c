@@ -23,7 +23,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
+/**
 * Constructor for the server
 * @param domain - AF_INET or AF_INET6 used for ipv4 and ipv6 respectively. AF_INET6 is not supported yet
 * @param service - Service can be a socket type or socket family. use socket.h constant SOCK_STREAM for TCP/FTP - 1 and SOCK_DGRAM for UDP - 2
