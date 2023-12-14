@@ -2,10 +2,10 @@
 
 <!-- PROJECT LOGO -->
 
-  <h3 align="center">p2p in C</h3>
+  <h3 align="center">Creating a webserver in C</h3>
 
   <p align="center">
-    Building up a p2p from the ground up in C. 
+    Building up a Webserver from the ground up in C. 
     <br />
     <a href="https://github.com/substantialcattle5/Networking.c"><strong>Explore the docs »</strong></a>
     <br />
