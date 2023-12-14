@@ -8,4 +8,8 @@ add_library(Networking
         server.h
         test.c
         HTTPRequest.c
-        HTTPRequest.h)
+        HTTPRequest.h
+        DataStructure/Node.c
+        DataStructure/Node.h
+        DataStructure/LinkedList.c
+        DataStructure/LinkedList.h)

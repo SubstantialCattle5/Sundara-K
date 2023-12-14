@@ -4,6 +4,7 @@
 
 #include "HTTPRequest.h"
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 int method_select(char *method) {
@@ -26,12 +27,13 @@ int method_select(char *method) {
     }else if (strcmp(method,"TRACE") == 0) {
         return TRACE;
     }
-    return 0;
+    return -1; // invalid option
 }
 
 struct HTTPRequest http_request_constructor(char *request_string) {
     struct HTTPRequest request ;
 
+    
     // to replace the \n\n seq with something which can be chopped
     for (int i = 0 ; i < strlen(request_string)-1; i++) {
         if (request_string[i] == '\n' && request_string[i+1] == '\n') {
