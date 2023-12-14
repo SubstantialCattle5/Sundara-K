@@ -32,9 +32,11 @@ struct LinkedList
      * @param index - The index at which the data is to be inserted
      * @param data - The pointer to the data to be inserted
      * @param linked_list - The pointer to the linked list in which the data is to be inserted
+     * @param data_type
+     * @param size
      * @return void
     */
-    void (*insert)(int index, void *data, struct LinkedList *linked_list);
+    void (*insert)(int index, void *data, struct LinkedList *linked_list, int data_type , int size);
 
     /**
      * remove - Removes a node at the given index in the linked list 

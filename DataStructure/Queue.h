@@ -24,16 +24,25 @@ struct Queue
      * The push function that will be used to push data into the queue
      * @param data - The pointer to the data to be pushed into the queue
      * @param queue - The pointer to the queue in which the data is to be pushed
+     * @param data_type
+     * @param size
      * @return void
     */
-    void (*push)(void *data, struct Queue *queue);
+    void (*push)(void *data, struct Queue *queue, int data_type , int size);
 
     /**
      * The pop function that will be used to pop data from the queue
      * @param queue - The pointer to the queue from which the data is to be popped
      * @return void * - The pointer to the data popped from the queue
     */
-    void * (*pop)(struct Queue *queue);
+    void (*pop)(struct Queue *queue);
+
+    /**
+     * Will return whatever value is at the front of the queue
+     * @param queue
+     * @return
+     */
+    void * (*peek) (struct Queue *queue) ;
 };
 
 /**

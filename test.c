@@ -1,12 +1,5 @@
-//
-//  test.c
-//
-//
-//  Created by Nilay on 2/1/21.
-//
-
 #include <stdio.h>
-#include "DataStructure/Queue.h"
+#include "DataStructure//Queue.h"
 
 #include <time.h>
 
@@ -14,23 +7,19 @@ int main()
 {
     struct Queue list = queue_constructor();
 
-    clock_t begin = clock();
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 10; i++)
     {
-        int *x = (int *)malloc(sizeof(int));
-        *x = i;
-        list.push(x, &list);
-    }
-    clock_t end = clock();
-
-    for (int i = 0; i < 100; i++)
-    {
-        printf("%d\n", *(int *)list.pop(&list));
+        char x[3] = "xyz";
+        list.push(&x,&list, Char, 3);
     }
 
-    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%c\n", ((char *)list.peek(&list))[0]);
+        printf("%c\n", ((char *)list.peek(&list))[1]);
 
-    printf("%f\n", time_spent);
+        list.pop(&list);
+    }
 
     queue_destructor(&list);
 }

@@ -14,4 +14,5 @@ add_library(Networking
         DataStructure/LinkedList.h
         DataStructure/Queue.c
         DataStructure/Queue.h
+        DataStructure/Node.c
 )
