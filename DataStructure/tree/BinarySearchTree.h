@@ -1,6 +1,12 @@
-//
-// Created by nilay on 12/15/23.
-//
+/**
+ * Declaration file of Binary Search Tree
+ * The file is the part of networking library
+ *
+ * Inspired by -
+ * https://www.geeksforgeeks.org/binary-search-tree-data-structure/
+ * Created By Nilay Nath Sharan
+ * 15th Dec 2023.
+ */
 
 #ifndef NETWORKING_BINARYSEARCHTREE_H
 #define NETWORKING_BINARYSEARCHTREE_H
@@ -11,28 +17,27 @@ struct BinarySearchTree {
 
     struct Node *head;
 
-
     /**
-     * Compare function would be user defined
-     * @param data_one
-     * @param data_two
+     * Compare function would be user defined.
+     * @param data_one - void pointer
+     * @param data_two - void pointer
      * @return int -> -1 if false and 1 if true.
      */
     int (*compare) (void *data_one , void *data_two) ;
 
     /**
-     * Search function would return the node being search
+     * Returns the node which is being searched.
      * @param tree - pointer to the binary search tree
      * @param data - pointer to the data stored
-     * @return * void - would return the value..
+     * @return * void - would return the value.
      */
     void * (* search) (struct BinarySearchTree *tree, void *data) ;
 
     /**
-     *
-     * @param tree
-     * @param data
-     * @param size
+     * Inserts the data
+     * @param tree - pointer to the binary search tree.
+     * @param data - pointer to the data being stored.
+     * @param size - size of the data
      */
     void (* insert) (struct BinarySearchTree *tree, void *data, int size) ;
 };

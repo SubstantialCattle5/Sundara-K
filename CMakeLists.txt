@@ -17,4 +17,8 @@ add_library(Networking
         DataStructure/common/Node.c
         DataStructure/tree/BinarySearchTree.c
         DataStructure/tree/BinarySearchTree.h
+        DataStructure/Dictionary/Entry.h
+        DataStructure/Dictionary/Entry.c
+        DataStructure/Dictionary/Dictionary.h
+        DataStructure/Dictionary/Dictionary.c
 )

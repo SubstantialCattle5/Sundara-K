@@ -17,6 +17,7 @@
  * @param data: pointer to the data
  * @param size : size of the data being stored
  * @param next: pointer to the next node
+ * @param previous : pointer to the previous node
 */
 struct Node
 {

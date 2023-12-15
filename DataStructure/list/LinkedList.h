@@ -27,8 +27,7 @@ struct LinkedList
     int length;
 
     /**
-     * insert - Inserts a node at the given index in the linked list 
-     * pointer to the data to be inserted
+     * insert - Inserts a node at the given index in the linked list pointer to the data to be inserted
      * @param index - The index at which the data is to be inserted
      * @param data - The pointer to the data to be inserted
      * @param linked_list - The pointer to the linked list in which the data is to be inserted

@@ -45,7 +45,7 @@ void queue_destructor(struct Queue *queue)
  * push - Pushes data into the queue
  * @param data - The pointer to the data to be pushed into the queue
  * @param queue - The pointer to the queue in which the data is to be pushed
- * @param size
+ * @param size - The size of the data being pushed
  * @return void
 */
 void push(void *data, struct Queue *queue, int size)

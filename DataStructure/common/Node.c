@@ -17,7 +17,10 @@ struct Node node_constructor(void *data, int size)
     }
     struct Node node;
 
-    // Allocating space for data
+    /**
+     * so initally the memory is allocated in the node.data after which it copies the data from
+     * data into the node.data
+     */
     node.data = malloc(size) ;
     memcpy(node.data, data, size);
     node.next = NULL;
