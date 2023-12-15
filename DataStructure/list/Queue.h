@@ -28,7 +28,7 @@ struct Queue
      * @param size
      * @return void
     */
-    void (*push)(void *data, struct Queue *queue, int data_type , int size);
+    void (*push)(void *data, struct Queue *queue, int size);
 
     /**
      * The pop function that will be used to pop data from the queue

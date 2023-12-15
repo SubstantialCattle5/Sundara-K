@@ -9,10 +9,12 @@ add_library(Networking
         test.c
         Webserver/HTTPRequest.c
         Webserver/HTTPRequest.h
-        DataStructure/Node.h
-        DataStructure/LinkedList.c
-        DataStructure/LinkedList.h
-        DataStructure/Queue.c
-        DataStructure/Queue.h
-        DataStructure/Node.c
+        DataStructure/common/Node.h
+        DataStructure/list/LinkedList.c
+        DataStructure/list/LinkedList.h
+        DataStructure/list/Queue.c
+        DataStructure/list/Queue.h
+        DataStructure/common/Node.c
+        DataStructure/tree/BinarySearchTree.c
+        DataStructure/tree/BinarySearchTree.h
 )

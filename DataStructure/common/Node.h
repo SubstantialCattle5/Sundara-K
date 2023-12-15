@@ -12,28 +12,18 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-enum DataTypes {
-    Special,
-    Int,
-    Long,
-    Float,
-    Double,
-    Char,
-    Bool
-};
 /**
  * Node structure
  * @param data: pointer to the data
- * @param data_type : type of data being stored
  * @param size : size of the data being stored
  * @param next: pointer to the next node
 */
 struct Node
 {
     void *data;
-    int data_type;
-    int size;
+
     struct Node *next;
+    struct Node *previous;
 };
 
 /**
@@ -43,7 +33,7 @@ struct Node
  * @param size : size of the data
  * @return Node
  */
-struct Node node_constructor(void *data, int data_type, int size);
+struct Node node_constructor(void *data, int size);
 
 /**
  * To delete a node
