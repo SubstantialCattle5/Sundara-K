@@ -27,7 +27,7 @@ struct Entry {
  * @param value_size - size of the value
  * @return Entry
  */
-struct Entry entry_constructor(void *key, int key_size, void *value, int value_size) ;
+struct Entry entry_constructor(void *key, unsigned long key_size, void *value, unsigned long value_size) ;
 
 void entry_destructor(struct Entry *entry) ;
 #endif //NETWORKING_ENTRY_H

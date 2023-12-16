@@ -21,6 +21,8 @@
 */
 struct Node
 {
+    /*PUBLIC MEMBERS VARIABLES*/
+    // data is being stored as a void pointers
     void *data;
 
     struct Node *next;

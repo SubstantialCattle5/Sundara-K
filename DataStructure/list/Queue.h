@@ -15,11 +15,13 @@
 struct Queue
 {
 
+    // member variables
     /**
      * The linked list that will be used to implement the queue
     */
     struct LinkedList list;
 
+    // public function
     /**
      * The push function that will be used to push data into the queue
      * @param data - The pointer to the data to be pushed into the queue
@@ -28,7 +30,7 @@ struct Queue
      * @param size
      * @return void
     */
-    void (*push)(void *data, struct Queue *queue, int size);
+    void (*push)(struct Queue *queue, void *data, unsigned long size);
 
     /**
      * The pop function that will be used to pop data from the queue
@@ -42,7 +44,7 @@ struct Queue
      * @param queue
      * @return
      */
-    void * (*peek) (struct Queue *queue) ;
+    void * (*peek)(struct Queue *queue);
 };
 
 /**

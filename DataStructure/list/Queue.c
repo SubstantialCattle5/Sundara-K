@@ -8,9 +8,10 @@
 #include "Queue.h"
 
 
+// MARK FUNCTION PROTOTYPE
 void * peek(struct Queue *queue);
 void pop (struct Queue *queue);
-void push(void *data, struct Queue *queue, int size) ;
+void push(struct Queue *queue,void *data, unsigned long size) ;
 
 
 /**
@@ -26,9 +27,11 @@ struct Queue queue_constructor()
     queue.push = push;
     queue.pop = pop;
     queue.peek = peek ;
+
     return queue;
 }
 
+// PRIVATE FUNCTIONS
 /**
  * queue_destructor - Destroys the given queue
  * @param queue - The queue to be destroyed
@@ -41,6 +44,8 @@ void queue_destructor(struct Queue *queue)
 }
 
 
+
+// MARK PUBLIC FUNCTIONS
 /**
  * push - Pushes data into the queue
  * @param data - The pointer to the data to be pushed into the queue
@@ -48,14 +53,13 @@ void queue_destructor(struct Queue *queue)
  * @param size - The size of the data being pushed
  * @return void
 */
-void push(void *data, struct Queue *queue, int size)
+void push(struct Queue *queue, void *data,  unsigned long size)
 {
     if (data == NULL || queue == NULL) {
         // Handle null pointers gracefully
-        printf("The queue is not initialized") ;
         return;
     }
-    queue->list.insert(queue->list.length, data, &queue->list, size);
+    queue->list.insert(&queue->list, queue->list.length, data, size);
 }
 
 /**
@@ -67,8 +71,8 @@ void pop(struct Queue *queue) {
         printf("The Queue is empty....") ;
         return ;
     }
-    void *data = queue->list.retrieve(0, &queue->list);
-    queue->list.remove(0, &queue->list);
+    void *data = queue->list.retrieve(&queue->list,0);
+    queue->list.remove(&queue->list,0);
 }
 
 /**
@@ -81,7 +85,7 @@ void * peek(struct Queue *queue) {
         printf("The Queue is empty....") ;
         return NULL;
     }
-    void *data = queue->list.retrieve(0,&queue->list);
+    void *data = queue->list.retrieve(&queue->list,0);
     return data;
 }
 

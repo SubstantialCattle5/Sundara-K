@@ -8,23 +8,25 @@
  * @param size
  * @return
  */
+
 struct Node node_constructor(void *data, int size)
 {
-    if (size < 1)
-    {
+    if (size < 1) { // to check empty size
         printf("Invalid data size for node...\n");
         exit(1);
     }
+
+    // Create a Node instance to be returned
     struct Node node;
 
-    /**
-     * so initally the memory is allocated in the node.data after which it copies the data from
-     * data into the node.data
-     */
-    node.data = malloc(size) ;
+    // Allocate space for the data if it is of a supported type
+    node.data = malloc(size);
     memcpy(node.data, data, size);
+
+    // Initialize the pointers.
     node.next = NULL;
-    node.previous = NULL ;
+    node.previous = NULL;
+
     return node;
 }
 
@@ -33,6 +35,10 @@ struct Node node_constructor(void *data, int size)
  */
 void node_destructor(struct Node *node)
 {
-    free(node->data);
-    free(node);
+    if (node != NULL) {
+        free(node->data);
+    } else {
+        printf("Node is Null \n") ;
+    }
+
 }

@@ -34,7 +34,7 @@ struct LinkedList
      * @param size
      * @return void
     */
-    void (*insert)(int index, void *data, struct LinkedList *linked_list,  int size);
+    void (*insert)(struct LinkedList *linked_list, int index, void *data, unsigned long size);
 
     /**
      * remove - Removes a node at the given index in the linked list 
@@ -42,7 +42,7 @@ struct LinkedList
      * @param linked_list - The pointer to the linked list in which the data is to be removed
      * @return void
     */
-    void (*remove)(int index, struct LinkedList *linked_list);
+    void (*remove)(struct LinkedList *linked_list, int index);
 
     /**
      * retrieve - Retrieves a node at the given index in the linked list 
@@ -50,7 +50,7 @@ struct LinkedList
      * @param linked_list - The pointer to the linked list in which the data is to be retrieved
      * @return pointer to void meaning it can return any value
     */
-    void * (*retrieve)(int index, struct LinkedList *linked_list);
+    void * (*retrieve)(struct LinkedList *linked_list, int index);
 };
 
 /**
