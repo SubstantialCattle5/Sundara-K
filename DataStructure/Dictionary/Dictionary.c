@@ -78,6 +78,7 @@ void * search_dict(struct Dictionary *dictionary, void *key, unsigned long key_s
     // Return either the value for that key or NULL if not found.
     if (result)
     {
+        printf("Found the result!\n");
         return ((struct Entry *)result)->value;
     }
     else
