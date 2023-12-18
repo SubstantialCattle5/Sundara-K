@@ -23,4 +23,6 @@ add_library(Networking
         DataStructure/Dictionary/Dictionary.c
         Webserver/Node/HTTPServer.c
         Webserver/Node/HTTPServer.h
+        Webserver/Node/Route.c
+        Webserver/Node/Route.h
 )

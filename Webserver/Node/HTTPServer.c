@@ -3,35 +3,37 @@
 //
 
 #include "HTTPServer.h"
-#include "../Protocols/HTTPRequest.h"
+#include "Route.h"
 
-#include <unistd.h>
+#include <stdarg.h>
 #include <string.h>
-#include <stdio.h>
-void launch(struct Server *server){
-    int addrlen = sizeof(server->address) ;
-    long valread;
 
-    while(1)
+void register_routes(struct HTTPServer *server, char * (*route_function)(struct HTTPServer *server, struct HTTPRequest *request), char *uri, int num_methods, ...);
+
+void launch(struct Server *);
+
+
+struct HTTPServer http_server_constructor()
+{
+    struct HTTPServer server;
+    server.server = server_constructor(AF_INET, SOCK_STREAM, 0, INADDR_ANY, 80, 255, launch);
+    server.routes = dictionary_constructor(compare_string_keys);
+    server.register_routes = register_routes;
+    return server;
+}
+
+
+void register_routes(struct HTTPServer *server, char * (*route_function)(struct HTTPServer *server, struct HTTPRequest *request), char *uri, int num_methods, ...)
+{
+    struct Route route;
+    va_list methods;
+    va_start(methods, num_methods);
+    for (int i = 0; i < num_methods; i++)
     {
-        printf("=== WAITING ===\n");
-        int new_socket = accept(server->socket, (struct sockaddr *)&server->address, (socklen_t *)&addrlen);
-        printf("New socket: %d\n", new_socket);
-        char buffer[30000];
-        valread = read(new_socket, buffer, 30000); // read the msg from the client and copy it to the buffer
-        struct HTTPRequest request = http_request_constructor(buffer);
-        char *x = "Host";
-        char *Host = request.http_request_search(&request, x);
-        // print all the contents of request header request
-        printf("\n\n uri HTTP Server -> \n\n%s" , Host) ;
-        char *hello = "HTTP/1.1 200 OK\nContent-Type: text/plain\n\n";
-        char *hello2 = "<h1>Hello world!</h1>";
-        char *hello3 = "Hello world!\n";
-        char r[strlen(Host) + strlen(hello2)];
-        strcat(r, Host);
-        strcat(r, hello2);
-        write(new_socket, r, strlen(r));
-        printf("\n\nrequest -> \n\n%s" , buffer) ;
-        close(new_socket);
+        route.methods[i] = va_arg(methods, int);
     }
+    strcpy(route.uri, uri);
+    route.route_function = route_function;
+    
+    server->routes.insert(&server->routes, uri, sizeof(char[strlen(uri)]), &route, sizeof(route));
 }
