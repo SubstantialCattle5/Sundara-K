@@ -24,7 +24,7 @@ struct Entry {
  * @param key - void pointer to the key
  * @param key_size - size of the key
  * @param value - void pointer to the value
- * @param value_size - size of the value
+ * @param value_size - size of thManages resources until close value
  * @return Entry
  */
 struct Entry entry_constructor(void *key, unsigned long key_size, void *value, unsigned long value_size) ;

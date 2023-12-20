@@ -10,7 +10,7 @@
 
 struct Route
 {
-    int method[9];
+    int methods[9];
     char *uri;
 
     char *(*route_function)(struct HTTPServer *server, struct HTTPRequest *request);
