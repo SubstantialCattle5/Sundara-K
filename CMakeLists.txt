@@ -24,4 +24,8 @@ add_library(Networking
         Webserver/Node/Route.h
         Webserver/Node/HTTPServer.c
         Webserver/Node/HTTPServer.h
+        System/Files.c
+        System/Files.h
+        System/ThreadPool.c
+        System/ThreadPool.h
 )
