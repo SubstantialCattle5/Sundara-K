@@ -34,7 +34,7 @@
 * @param launch - Function to be called when the server is launched
 * @return server - Returns the server object
 */
-struct Server server_constructor(int domain, int service, int protocol, u_long interface, int port, int backlog, void(*launch)(struct Server *server)){
+struct Server server_constructor(int domain, int service, int protocol, u_long interface, int port, int backlog){
     struct Server server ;
 
     server.domain = domain ;
@@ -85,7 +85,6 @@ struct Server server_constructor(int domain, int service, int protocol, u_long i
         exit(1);
     };
 
-    server.launch = launch ;
 
     return server ;
 }

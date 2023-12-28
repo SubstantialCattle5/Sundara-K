@@ -70,13 +70,6 @@ struct Server {
     struct sockaddr_in address;
 
     /*
-    * Launch is the function that is called when the server is launched
-    * Launch is a function pointer to a function that takes a struct Server pointer as an argument and returns void
-    * The function should be defined as void launch(struct Server *server) and should be defined in the main file
-    */
-    void(*launch)(struct Server *server) ;
-
-    /*
     * Socket is the socket descriptor of the server
     */
     int socket ;
@@ -95,7 +88,7 @@ struct Server {
 * launch - void(*)(struct Server *server) - Launch is the function that is called when the server is launched
 * Returns a struct Server object
 */
-struct Server server_constructor(int domain , int service, int protocol , u_long interface ,int port ,int backlog , void(*launch)(struct Server *server));
+struct Server server_constructor(int domain , int service, int protocol , u_long interface ,int port ,int backlog);
 
 
 
