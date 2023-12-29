@@ -5,7 +5,7 @@
   <h3 align="center">Sundara-K</h3>
 
   <p align="center">
-    Building up a Webserver from the ground up in C. 
+ A web framework purely written in C.   
     <br />
     <a href="https://github.com/substantialcattle5/Networking.c"><strong>Explore the docs »</strong></a>
     <br />
