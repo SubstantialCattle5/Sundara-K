@@ -2,7 +2,7 @@
 
 <!-- PROJECT LOGO -->
 
-  <h3 align="center">Creating a webserver in C</h3>
+  <h3 align="center">Sundara-K</h3>
 
   <p align="center">
     Building up a Webserver from the ground up in C. 
